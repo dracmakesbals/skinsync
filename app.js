@@ -76,21 +76,21 @@ function renderSurvey() {
   }
 
   const html = `
-      <h2>${question.question}</h2>
-      <ul>
-        ${question.options
-          .map(
-            (option) => `
-          <li>
-            <input type="radio" name="question-${currentQuestion}" value="${option.value}" id="${option.value}">
-            <label for="${option.value}">${option.label}</label>
-          </li>
-        `
-          )
-          .join("")}
-      </ul>
-      <button class="next-button">Next</button>
-    `;
+    <h2>${question.question}</h2>
+    <ul>
+      ${question.options
+        .map(
+          (option) => `
+        <li>
+          <input type="radio" name="question-${currentQuestion}" value="${option.value}" id="${option.value}">
+          <label for="${option.value}">${option.label}</label>
+        </li>
+      `
+        )
+        .join("")}
+    </ul>
+    <button class="next-button">Next</button>
+  `;
   surveyContainer.innerHTML = html;
   surveyContainer.style.display = "block";
   surveyContainer.className = "survey-container"; // Ensure it's the default class
@@ -263,17 +263,17 @@ function displayResults() {
 
   // Display the results
   surveyContainer.innerHTML = `
-    <h2 class="results-title">Your Skincare Recommendations:</h2>
-    ${
-      firstCleanser
-        ? `<p class="result-item"><strong>First Cleanser:</strong> ${firstCleanser}</p>`
-        : ""
-    }
-    <p class="result-item"><strong>Second Cleanser:</strong> ${secondCleanser}</p>
-    <p class="result-item"><strong>Sunscreen:</strong> ${sunscreen}</p>
-    <p class="result-item"><strong>Moisturizer:</strong> ${moisturizer}</p>
-    <button class="restart-button">Restart</button>
-  `;
+  <h2 class="results-title">Your Skincare Recommendations:</h2>
+  ${
+    firstCleanser
+      ? `<p class="result-item"><strong>First Cleanser:</strong> ${firstCleanser}</p>`
+      : ""
+  }
+  <p class="result-item"><strong>Second Cleanser:</strong> ${secondCleanser}</p>
+  <p class="result-item"><strong>Sunscreen:</strong> ${sunscreen}</p>
+  <p class="result-item"><strong>Moisturizer:</strong> ${moisturizer}</p>
+  <button class="restart-button">Restart</button>
+`;
 
   // Apply additional styling
   surveyContainer.style.backgroundColor = "#f9f9f9";
@@ -333,4 +333,15 @@ button.addEventListener("click", () => {
   heading.style.display = "none";
   button.style.display = "none";
   renderSurvey();
+});
+
+const hamburger = document.querySelector(".hamburger");
+const menu_links = document.querySelector("ul");
+const links = document.querySelectorAll("ul li");
+
+hamburger.addEventListener("click", () => {
+  menu_links.classList.toggle("open");
+  links.forEach((link) => {
+    link.classList.toggle("fade");
+  });
 });
