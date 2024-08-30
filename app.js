@@ -272,6 +272,7 @@ function displayResults() {
   <p class="result-item"><strong>Second Cleanser:</strong> ${secondCleanser}</p>
   <p class="result-item"><strong>Sunscreen:</strong> ${sunscreen}</p>
   <p class="result-item"><strong>Moisturizer:</strong> ${moisturizer}</p>
+  <p class="result-item recommendation-text">Use first cleanser followed by the second cleanser in the evening. Use sunscreen every morning and apply moisturizer twice daily.<p>  
   <button class="restart-button">Restart</button>
 `;
 
